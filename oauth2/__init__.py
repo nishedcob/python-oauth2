@@ -811,6 +811,8 @@ class SignatureMethod(object):
         """Returns whether the given signature is the correct signature for
         the given consumer and token signing the given request."""
         built = self.sign(request, consumer, token)
+        built = built.decode('utf-8')
+        #signature = str(signature)
         return built == signature
 
 
